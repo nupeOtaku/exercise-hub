@@ -1,9 +1,11 @@
+export const exerciseUrl =
+  'https://exercisedb.p.rapidapi.com/exercises/bodyPart';
+
 export const exerciseOptions = {
   method: 'GET',
-  url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPart/back',
   params: { limit: '10' },
   headers: {
-    'X-RapidAPI-Key': import.meta.env.REACT_APP_RAPID_API_KEY,
+    'X-RapidAPI-Key': '523eeeae80mshfc46e26c1236754p1ff3b8jsnf7c34652cd0f',
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
   },
 };

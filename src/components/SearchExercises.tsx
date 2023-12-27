@@ -1,12 +1,18 @@
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { exerciseOptions, exerciseUrl, fetchData } from '../utils/fetchdata';
 
 const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
 
   const handleSearch = async () => {
     if (search) {
-      const exercises = await fetch(`/search/${search}`);
+      const exercises = await fetchData(
+        `${exerciseUrl}/${search}`,
+        exerciseOptions
+      );
+
+      console.log(exercises);
     }
   };
 
@@ -34,7 +40,7 @@ const SearchExercises = () => {
           }}
           placeholder="Search Exercises"
           type="text"
-          value=""
+          value={search}
         />
         <Button
           className="search-btn"
@@ -48,7 +54,7 @@ const SearchExercises = () => {
             right: '0px',
             fontSize: { lg: '20px', xs: '14px' },
           }}
-          onClick={HandleSearch}
+          onClick={handleSearch}
         >
           Search
         </Button>
